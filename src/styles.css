@@ -196,7 +196,7 @@
   .project-status { display: inline-flex; align-items: center; gap: 6px; color: #b9eae4; font-size: .75rem; }
   .project-banner-content { display: flex; justify-content: space-between; align-items: center; gap: 35px; padding-block: 43px 29px; position: relative; z-index: 1; }
   .project-wordmark { display: flex; align-items: center; gap: 18px; }
-  .bluebox-mark { background: #b3f4e6; width: 59px; height: 59px; display: grid; place-items: center; border-radius: 11px; color: #153c47; }
+  .bluebox-logo { display: block; flex: 0 0 auto; width: min(190px, 34vw); height: 62px; border-radius: 4px; object-fit: contain; }
   .project-wordmark h3 { font-size: 2.75rem; letter-spacing: -.05em; }
   .project-wordmark h3 > span { display: block; font-family: var(--font-sans); font-size: .8125rem; letter-spacing: 0; color: #b7d4de; margin-top: 5px; }
   .project-banner-content p { font-size: 1.65rem; font-family: var(--font-display); line-height: 1.4; color: #c7e0e8; letter-spacing: -.035em; margin-top: 30px; }
@@ -581,7 +581,7 @@
   .project-banner-content { flex-direction: column; align-items: flex-start; padding-block: 29px 23px; gap: 27px; }
   .project-wordmark h3 { font-size: 2.375rem; }
   .project-wordmark h3 > span { font-size: .75rem; }
-  .bluebox-mark { width: 50px; height: 50px; }
+  .bluebox-logo { width: min(166px, 45vw); height: 54px; }
   .project-banner-content p { font-size: 1.4rem; margin-top: 23px; }
   .project-stack-diagram { width: 100%; flex-direction: row; }
   .project-stack-diagram > span { padding: 12px 5px; flex-direction: column; gap: 8px; font-size: .75rem; text-align: center; }
@@ -796,7 +796,7 @@ body { color: #183246; background: #fff; }
 .project-status { color: #287457; }
 .project-wordmark h3, .project-banner-content p { color: #183246; }
 .project-wordmark h3 > span { color: #607482; }
-.bluebox-mark { border-radius: 3px; color: #fff; background: #1559a6; }
+.bluebox-logo { border-radius: 3px; }
 .project-stack-diagram > span { border-color: #d1dde3; border-radius: 2px; color: #334f62; background: #fff; }
 .project-stack-diagram svg { color: #1559a6; }
 .project-stack-diagram i { border-color: #aabac3; }
@@ -1095,12 +1095,30 @@ body { color: #183246; background: #fff; }
 .secome-feature-groups .project-features li > svg { flex: 0 0 auto; color: #1559a6; }
 .secome-gallery-grid .screenshot-card img { aspect-ratio: 3 / 2; background: #f7f8fa; object-fit: contain; }
 
+.project-delivery { margin-top: 27px; }
+.project-delivery-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 22px; margin-bottom: 14px; }
+.project-delivery-heading .mono { color: #657884; font-size: .7rem; letter-spacing: .08em; }
+.project-delivery-heading p { color: #586b79; font-size: .82rem; }
+.project-release-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.project-release { min-width: 0; padding: 15px 14px; border: 1px solid #dce4e8; border-radius: 3px; background: #f7f8fa; }
+.project-release-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
+.project-release-top .mono { color: #1559a6; font-size: .7rem; }
+.project-release-top > span:last-child { color: #657884; font-size: .68rem; }
+.project-release h5 { margin-bottom: 8px; color: #183246; font-size: .84rem; line-height: 1.4; }
+.project-release > p { color: #586b79; font-size: .76rem; line-height: 1.65; }
+
 @media (max-width: 800px) {
+  .project-release-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .secome-mark { width: 56px; height: 56px; }
   .secome-project .project-stack-diagram { flex-basis: 205px; width: 205px; margin-right: 0; }
   .secome-feature-groups { gap: 22px; }
 }
 @media (max-width: 560px) {
+  .flagship-project .project-wordmark { flex-wrap: wrap; gap: 12px; }
+  .flagship-project .bluebox-logo { width: min(166px, 43vw); height: auto; aspect-ratio: 485 / 154; }
+  .flagship-project .project-wordmark h3 { flex: 1 1 130px; min-width: 0; font-size: 1.95rem; }
+  .flagship-project .project-wordmark h3 > span { font-size: .68rem; line-height: 1.35; }
+  .project-release-grid { grid-template-columns: 1fr; }
   .secome-project { margin-top: 22px; }
   .secome-project .project-wordmark { gap: 12px; }
   .secome-mark { width: 48px; height: 48px; }
