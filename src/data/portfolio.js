@@ -43,9 +43,14 @@ export const experiences = [{
         role: 'Full-Stack Development Intern',
         label: 'Professional internship',
         period: 'Jun 2025 — Aug 2025',
-        description: 'Applied React and Spring Boot to develop a full-stack web application with a responsive front end and a secure, efficient back end.',
-        points: [],
-        tags: ['React', 'Spring Boot'],
+        description: 'Developed a commercial management web application for SECOME, connecting a customer storefront with an administration portal and backend services.',
+        points: [
+            'Built customer flows for browsing products, managing a cart, placing orders, and retrieving downloadable PDF quotes.',
+            'Implemented Spring Boot microservices with Spring Cloud routing, Spring Data JPA, and MySQL; developed the interface with React and Axios.',
+            'Created protected administration workflows for the product catalog, customers, orders, and quote review and approval.',
+            'Tested REST endpoints with Postman and checked integration between the frontend and backend; used Kanban and UML to organize and model the work.',
+        ],
+        tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Spring Data JPA', 'React', 'Axios', 'MySQL', 'Bootstrap', 'REST APIs', 'Postman', 'Kanban', 'UML'],
     },
     {
         company: 'Future Proof',
@@ -206,6 +211,53 @@ export const bluebox = {
         { src: 'images/bluebox/embedded/41-controller-sleep-state.webp', alt: 'Controller home screen in sleep mode with the pump off', caption: 'Controller · sleep state' },
         { src: 'images/bluebox/embedded/42-settings-menu-controller.webp', alt: 'Controller settings screen with program, Wi-Fi, date, valve, update, and pressure icons', caption: 'Settings menu · controller' },
         { src: 'images/bluebox/embedded/43-pressure-settings-controller.webp', alt: 'Controller pressure settings screen showing pressure error and warning thresholds', caption: 'Pressure settings · controller' },
+    ],
+};
+
+export const secome = {
+    company: 'SECOME',
+    title: 'Commercial Management Web Application',
+    subtitle: 'Customer storefront · Orders · Quotes · Admin portal',
+    summary: 'A web platform for SECOME customers to browse metal products, place orders, and retrieve quotes, with a secure administration area for day-to-day commercial operations.',
+    problem: 'Product, customer, order, and quote workflows relied on disconnected or manual processes, making information harder to find and follow for both customers and administrators.',
+    solution: 'Built a responsive customer storefront and a protected admin workspace over a service-based backend, bringing the product catalog, orders, quotes, and customer records into one application.',
+    contributionTitle: 'I developed the customer and administration workflows.',
+    contribution: [
+        'Implemented the product storefront, cart, delivery checkout, and order submission. The order flow produces a quote that customers can look up by email and download as a PDF.',
+        'Built administration screens for product management, customer records, order tracking, and quote review. Administrators can update the catalog, follow order status, and validate or respond to quotes.',
+        'Connected the React interface to Spring Boot services through Spring Cloud routing and an API Gateway, with Spring Data JPA and MySQL for persistence.',
+        'Tested individual REST services with Postman and checked frontend/backend integration. Organized development with Kanban and documented the design with MVC concepts and UML use-case, sequence, and class diagrams.',
+    ],
+    platformLayers: [
+        { number: '01', title: 'Customer storefront', technology: 'React · Axios · Bootstrap', icon: 'PanelsTopLeft', detail: 'Customers browse the product catalog, add items to a cart, enter delivery details, submit an order, and retrieve generated quotes.' },
+        { number: '02', title: 'Administration portal', technology: 'React · Protected access', icon: 'ShieldCheck', detail: 'Administrators use a sign-in area and dashboard to manage products and customers and follow orders and quotes.' },
+        { number: '03', title: 'Backend services', technology: 'Java · Spring Boot · Spring Cloud', icon: 'Server', detail: 'The backend is organized as MVC microservices, with an API Gateway routing requests and Spring Cloud supporting service configuration and discovery.' },
+        { number: '04', title: 'Data and validation', technology: 'Spring Data JPA · MySQL · Postman', icon: 'Database', detail: 'Relational records cover customers, products, orders, and quotes. REST endpoints and frontend/backend integration were checked during development.' },
+    ],
+    communicationFlow: 'The React client sends REST requests through the Spring Cloud API Gateway to the Spring Boot services. Spring Data JPA persists catalog, customer, order, and quote data in MySQL.',
+    customerFeatures: [
+        'Browse products and view categories, descriptions, and prices.',
+        'Add products to a cart, change quantities, and see the total update.',
+        'Submit an order with delivery information.',
+        'Find quotes using an email address and download them as PDFs.',
+    ],
+    adminFeatures: [
+        'Review product, order, quote, and customer counts on the dashboard.',
+        'Add, edit, and remove products and maintain catalog details.',
+        'Review customer records and track incoming orders and their status.',
+        'Review and validate quotes, send a response, and make quote PDFs available.',
+    ],
+    technologies: ['Java', 'Spring Boot', 'Spring Cloud', 'Spring Data JPA', 'React', 'Axios', 'MySQL', 'Bootstrap', 'CSS', 'REST APIs', 'Postman', 'MVC', 'Microservices', 'API Gateway', 'Kanban', 'UML'],
+    screenshots: [
+        { src: 'images/secome/customer-storefront.png', alt: 'SECOME customer storefront for browsing metal products, descriptions, and prices', caption: 'Customer storefront · product catalog' },
+        { src: 'images/secome/shopping-cart.png', alt: 'Customer cart with selected products, quantity controls, order total, and delivery information fields', caption: 'Customer storefront · cart and checkout' },
+        { src: 'images/secome/customer-quotes.png', alt: 'Customer quote lookup page with PDF download for a generated quote', caption: 'Customer storefront · quote lookup' },
+        { src: 'images/secome/admin-login.png', alt: 'SECOME administration sign-in screen', caption: 'Administration · sign in' },
+        { src: 'images/secome/admin-dashboard.png', alt: 'SECOME administrator dashboard with product, order, quote, and customer summaries', caption: 'Administration · dashboard' },
+        { src: 'images/secome/product-management.png', alt: 'Administration page for adding, editing, and managing products', caption: 'Administration · product management' },
+        { src: 'images/secome/order-management.png', alt: 'Administration page showing order information, products, total, and order status with customer details obscured', caption: 'Administration · order management' },
+        { src: 'images/secome/quote-management.png', alt: 'Administration page for reviewing and responding to customer quotes with personal details obscured', caption: 'Administration · quote management' },
+        { src: 'images/secome/client-management.png', alt: 'Administration page listing client records with personal information obscured', caption: 'Administration · client management' },
     ],
 };
 

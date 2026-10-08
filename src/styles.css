@@ -1014,3 +1014,98 @@ body { color: #183246; background: #fff; }
   .education-topic { padding: 5px 8px; font-size: .68rem; }
   .education-availability { margin-left: 60px; font-size: .75rem; }
 }
+
+/* Shared motion: gentle entrance, lift, and icon feedback. */
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms), transform .65s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms);
+}
+.reveal-ready.is-visible { opacity: 1; transform: translateY(0); }
+.hero-copy > * { animation: hero-enter .65s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-copy > :nth-child(1) { animation-delay: 40ms; }
+.hero-copy > :nth-child(2) { animation-delay: 100ms; }
+.hero-copy > :nth-child(3) { animation-delay: 160ms; }
+.hero-copy > :nth-child(4) { animation-delay: 220ms; }
+.hero-copy > :nth-child(5) { animation-delay: 280ms; }
+.hero-copy > :nth-child(6) { animation-delay: 340ms; }
+.hero-copy > :nth-child(7) { animation-delay: 400ms; }
+.hero-about-panel { animation: hero-enter .75s cubic-bezier(.2, .7, .2, 1) 180ms both; }
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.button { transition: transform .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease; }
+.button svg, .text-link svg, .education-availability svg { transition: transform .22s ease; }
+.button:hover svg, .text-link:hover svg, .education-availability:hover svg { transform: translate(2px, -2px); }
+.nav-links a { transition: color .2s ease; }
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-card,
+  .experience-card,
+  .education-card,
+  .additional-project,
+  .screenshot-card,
+  .hero-about-panel,
+  .contact-form-wrap {
+    transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+  }
+  .skill-card:hover,
+  .experience-card:hover,
+  .education-card:hover,
+  .additional-project:hover,
+  .screenshot-card:hover,
+  .hero-about-panel:hover,
+  .contact-form-wrap:hover {
+    transform: translateY(-3px);
+    border-color: #b7c8d1;
+    box-shadow: 0 12px 26px #18324612;
+  }
+  .button:hover { box-shadow: 0 7px 16px #1559a622; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready,
+  .reveal-ready.is-visible,
+  .hero-copy > *,
+  .hero-about-panel {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* SECOME case study keeps the portfolio's light surface and blue accents. */
+.secome-project { margin-top: 30px; }
+.secome-project .project-wordmark { align-items: flex-start; }
+.secome-mark { display: block; width: 64px; height: 64px; flex: 0 0 auto; border: 1px solid #dce4e8; border-radius: 50%; background: #fff; object-fit: contain; }
+.secome-project .project-wordmark h3 { max-width: 540px; font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.16; letter-spacing: -.035em; }
+.secome-project .project-wordmark h3 > span { margin-top: 8px; font-size: .82rem; line-height: 1.5; }
+.secome-project .project-banner-content p { margin-top: 21px; font-size: clamp(1.25rem, 2.15vw, 1.7rem); line-height: 1.35; }
+.secome-project .project-stack-diagram { flex: 0 0 225px; width: 225px; }
+.secome-project .project-stack-diagram > span { border-color: #d1dde3; color: #334f62; background: #fff; }
+.secome-project .project-stack-diagram svg { color: #1559a6; }
+.secome-project .project-stack-diagram i { border-color: #aabac3; }
+.secome-project .communication-flow { border-left-color: #1559a6; background: #f7f8fa; }
+.secome-project .communication-flow > .mono { color: #657884; }
+.secome-feature-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.secome-feature-groups .project-features ul { grid-template-columns: 1fr; gap: 12px; margin: 15px 0 30px; }
+.secome-feature-groups .project-features li { color: #425969; }
+.secome-feature-groups .project-features li > svg { flex: 0 0 auto; color: #1559a6; }
+.secome-gallery-grid .screenshot-card img { aspect-ratio: 3 / 2; background: #f7f8fa; object-fit: contain; }
+
+@media (max-width: 800px) {
+  .secome-mark { width: 56px; height: 56px; }
+  .secome-project .project-stack-diagram { flex-basis: 205px; width: 205px; margin-right: 0; }
+  .secome-feature-groups { gap: 22px; }
+}
+@media (max-width: 560px) {
+  .secome-project { margin-top: 22px; }
+  .secome-project .project-wordmark { gap: 12px; }
+  .secome-mark { width: 48px; height: 48px; }
+  .secome-project .project-wordmark h3 { font-size: 1.45rem; }
+  .secome-project .project-wordmark h3 > span { font-size: .73rem; }
+  .secome-project .project-stack-diagram { align-self: stretch; flex-basis: auto; width: min(100%, 290px); }
+  .secome-feature-groups { grid-template-columns: 1fr; gap: 0; }
+}

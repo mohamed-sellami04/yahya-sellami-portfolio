@@ -17,7 +17,7 @@ function Screenshot({ shot, items, index, onOpen }) {
   </figure>;
 }
 
-export default function ProjectGallery() {
+export default function ProjectGallery({ screenshots = null, projectName = 'BlueBox' }) {
   const [showAlbum, setShowAlbum] = useState(false);
   const [showMobileAlbum, setShowMobileAlbum] = useState(false);
   const [viewer, setViewer] = useState(null);
@@ -27,6 +27,7 @@ export default function ProjectGallery() {
   const architectureDiagrams = bluebox.architectureDiagrams || [];
   const embeddedScreenshots = bluebox.embeddedScreenshots || [];
   const mobileScreenshots = bluebox.mobileScreenshots || [];
+  const isCustomGallery = screenshots !== null;
 
   useEffect(() => {
     if (!viewerIsOpen) {
@@ -68,21 +69,28 @@ export default function ProjectGallery() {
   }
 
   return <>
-    {architectureDiagrams.length > 0 && <div className="gallery-subsection">
+    {isCustomGallery && screenshots.length > 0 && <div className="gallery-subsection">
+      <div className="gallery-subsection-heading"><h5>{projectName} application screens</h5><p>Selected pages from the customer storefront and administration workspace.</p></div>
+      <div className="project-gallery secome-gallery-grid">
+        {screenshots.map((shot, index) => <Screenshot key={shot.src} shot={shot} items={screenshots} index={index} onOpen={openViewer} />)}
+      </div>
+    </div>}
+
+    {!isCustomGallery && architectureDiagrams.length > 0 && <div className="gallery-subsection">
       <div className="gallery-subsection-heading"><h5>System flows and architecture</h5><p>Visual guides to Wi-Fi setup, controller synchronization, and firmware updates.</p></div>
       <div className="project-gallery architecture-gallery-grid">
         {architectureDiagrams.map((shot, index) => <Screenshot key={shot.src} shot={shot} items={architectureDiagrams} index={index} onOpen={openViewer} />)}
       </div>
     </div>}
 
-    {bluebox.screenshots.length > 0 && <div className="gallery-subsection">
+    {!isCustomGallery && bluebox.screenshots.length > 0 && <div className="gallery-subsection">
       <div className="gallery-subsection-heading"><h5>Product views</h5><p>Controller, mobile app, system overview, and irrigation hardware.</p></div>
       <div className="project-gallery">
         {bluebox.screenshots.map((shot, index) => <Screenshot key={shot.src} shot={shot} items={bluebox.screenshots} index={index} onOpen={openViewer} />)}
       </div>
     </div>}
 
-    {mobileScreenshots.length > 0 && <div className="embedded-album mobile-album">
+    {!isCustomGallery && mobileScreenshots.length > 0 && <div className="embedded-album mobile-album">
       <button type="button" className="album-toggle" aria-expanded={showMobileAlbum} aria-controls="bluebox-mobile-album" onClick={() => setShowMobileAlbum(open => !open)}>
         <span className="album-toggle-label"><Smartphone size={19} aria-hidden="true" /><span>{showMobileAlbum ? 'Hide mobile app screen album' : 'Browse mobile app screen album'}</span></span>
         <span className="album-count">{mobileScreenshots.length} screens</span>
@@ -97,7 +105,7 @@ export default function ProjectGallery() {
       </div>
     </div>}
 
-    {embeddedScreenshots.length > 0 && <div className="embedded-album">
+    {!isCustomGallery && embeddedScreenshots.length > 0 && <div className="embedded-album">
       <button type="button" className="album-toggle" aria-expanded={showAlbum} aria-controls="bluebox-embedded-album" onClick={() => setShowAlbum(open => !open)}>
         <span className="album-toggle-label"><Image size={19} aria-hidden="true" /><span>{showAlbum ? 'Hide embedded screen album' : 'Browse embedded screen album'}</span></span>
         <span className="album-count">{embeddedScreenshots.length} screens</span>
@@ -114,8 +122,8 @@ export default function ProjectGallery() {
 
     {viewer && createPortal(
       <div className="album-viewer" onClick={() => setViewer(null)}>
-        <section className="album-viewer-dialog" role="dialog" aria-modal="true" aria-label="BlueBox screenshot viewer" onClick={event => event.stopPropagation()}>
-          <div className="album-viewer-header"><span className="mono">BLUEBOX / PROJECT GALLERY</span><button type="button" className="album-viewer-close" ref={closeButtonRef} onClick={() => setViewer(null)} aria-label="Close image viewer"><X size={22} /></button></div>
+        <section className="album-viewer-dialog" role="dialog" aria-modal="true" aria-label={`${projectName} screenshot viewer`} onClick={event => event.stopPropagation()}>
+          <div className="album-viewer-header"><span className="mono">{projectName.toUpperCase()} / PROJECT GALLERY</span><button type="button" className="album-viewer-close" ref={closeButtonRef} onClick={() => setViewer(null)} aria-label="Close image viewer"><X size={22} /></button></div>
           <div className="album-viewer-stage">
             <button type="button" className="album-viewer-nav" onClick={() => moveViewer(-1)} aria-label="Previous screenshot"><ChevronLeft size={25} /></button>
             <figure className="album-viewer-figure">
@@ -130,7 +138,7 @@ export default function ProjectGallery() {
       document.body
     )}
 
-    {!bluebox.screenshots.length && !embeddedScreenshots.length && <div className="gallery-placeholders" aria-label="BlueBox product images">
+    {!isCustomGallery && !bluebox.screenshots.length && !embeddedScreenshots.length && <div className="gallery-placeholders" aria-label="BlueBox product images">
       {[['Controller & valves', Cpu], ['Mobile application', Smartphone], ['Web dashboard', PanelsTopLeft]].map(([title, GalleryIcon]) => <div className="gallery-placeholder" key={title}><GalleryIcon size={27} aria-hidden="true" /><strong>{title}</strong><span>Product image coming soon</span></div>)}
     </div>}
   </>;

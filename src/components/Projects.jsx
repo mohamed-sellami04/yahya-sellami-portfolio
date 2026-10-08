@@ -3,10 +3,11 @@ import { additionalProjects, bluebox } from '../data/portfolio';
 import { safeExternalUrl } from '../lib/utils';
 import { Icon, Reveal, SectionHeading, Tag } from './ui';
 import ProjectGallery from './ProjectGallery';
+import SecomeProject from './SecomeProject';
 
 export default function Projects() {
   return <section id="projects" className="section section--projects" aria-labelledby="projects-title"><div className="container">
-    <Reveal><SectionHeading number="04" eyebrow="SELECTED WORK" title={<span id="projects-title">Code that leaves<br /><span className="muted">the screen.</span></span>} description="A real-world project connecting software with physical systems." /></Reveal>
+    <Reveal><SectionHeading number="04" eyebrow="SELECTED WORK" title={<span id="projects-title">Code that leaves<br /><span className="muted">the screen.</span></span>} description="Full-stack applications and connected systems built to solve real-world problems." /></Reveal>
     <Reveal><article className="flagship-project">
       <div className="project-banner">
         <div className="project-kicker"><span className="mono">FEATURED PROJECT / 01</span><span className="project-status"><Check size={14} aria-hidden="true" />Full-stack & IoT internship</span></div>
@@ -46,6 +47,7 @@ export default function Projects() {
         <div className="gallery-heading"><h4>A closer look</h4><span>Architecture · Controller · Mobile · Hardware</span></div><ProjectGallery />
       </div>
     </article></Reveal>
+    <SecomeProject />
     <div className="more-projects-heading"><h3>More work, coming next.</h3><span className="mono">ROOM TO KEEP BUILDING</span></div>
     <div className="additional-projects">{additionalProjects.map((project, i) => { const href = safeExternalUrl(project.url); return <Reveal key={project.id} delay={i * 40}><article className="additional-project"><div className="additional-top"><Icon name={project.icon} size={25} /><span className="project-placeholder-label">{project.status === 'placeholder' ? 'Project placeholder' : project.type}</span></div><p className="mono">{project.type}</p><h4>{project.title}</h4><p>{project.description}</p>{project.technologies?.length > 0 && <div className="tags">{project.technologies.map(tech => <Tag key={tech}>{tech}</Tag>)}</div>}{href && <a href={href} target="_blank" rel="noopener noreferrer" className="text-link">Explore project<ArrowUpRight size={16} aria-hidden="true" /></a>}</article></Reveal>; })}</div>
   </div></section>;
