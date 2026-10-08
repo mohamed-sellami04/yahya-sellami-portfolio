@@ -2,7 +2,7 @@
 // Use public asset paths without a leading slash to support subfolder deployment.
 export const profile = {
     name: 'Mohamed Yahya Sellami',
-    shortName: 'Yahya Sellami',
+    shortName: 'Mohamed Yahya Sellami',
     title: 'Junior Full-Stack & IoT Developer | Software Testing',
     location: 'Sfax, Tunisia',
     availability: 'Open to full-time opportunities',
@@ -17,7 +17,6 @@ export const profile = {
 
 export const navigation = [
     ['home', 'Home'],
-    ['about', 'About'],
     ['experience', 'Experience'],
     ['skills', 'Skills'],
     ['projects', 'Projects'],
@@ -217,7 +216,7 @@ export const additionalProjects = [
 ];
 
 export const education = [
-    { date: '2026 — present', title: 'Engineering Cycle in Computer Science', institution: 'Institut International de Technologie (IIT) · Evening classes', description: 'Currently continuing my studies in an evening program.', current: true },
-    { date: '2023 — 2026', title: 'Bachelor’s Degree in Computer Science and Information Systems', institution: 'Institut International de Technologie (IIT)', description: 'Graduate in Computer Science and Information Systems.', current: false },
-    { date: '2023', title: 'Baccalaureate in Technical Sciences', institution: 'Lycée Ibn Rachik · Sfax', description: 'Technical Sciences baccalaureate.', current: false },
+    { date: '2026 — present', title: 'Engineering Cycle in Computer Science', institution: 'Institut International de Technologie (IIT) · Evening classes', description: 'Currently continuing my studies in an evening program.', logo: 'images/education/iit-logo.png', location: 'Sfax, Tunisia', topics: ['Computer Science', 'Evening classes'], current: true },
+    { date: '2023 — 2026', title: 'Bachelor’s Degree in Computer Science and Information Systems', institution: 'Institut International de Technologie (IIT)', description: 'Graduate in Computer Science and Information Systems.', logo: 'images/education/iit-logo.png', location: 'Sfax, Tunisia', topics: ['Computer Science', 'Information Systems'], current: false },
+    { date: '2023', title: 'Baccalaureate in Technical Sciences', institution: 'Lycée Ibn Rachik · Sfax', description: 'Technical Sciences baccalaureate.', location: 'Sfax, Tunisia', topics: ['Technical Sciences'], current: false },
 ];

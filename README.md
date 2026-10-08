@@ -24,19 +24,11 @@ The deployable website is generated in `dist/`. Do not open `index.html` by doub
 
 ## Visual concept
 
-**Software meets hardware.** A restrained engineering identity: midnight surfaces, generous spacing, a cyan accent, large headings, and fine technical details. A clickable system architecture diagram connects the application, service, and field layers. BlueBox receives a full case study rather than a generic project tile.
-
-| Token | Color | Use |
-| --- | --- | --- |
-| Midnight | `#080F1B` | Page background |
-| Surface | `#101D2E` | Raised cards and form |
-| Ink | `#F3F6FA` | Primary text |
-| Muted | `#A7B5C8` | Supporting text |
-| Accent | `#69E3E1` | Actions, emphasis, focus |
+A simple light portfolio with a compact introduction, clear section spacing, and blue accents. The Home section combines the introduction and About content; detailed BlueBox architecture and feature information can be expanded from the project page.
 
 Typography: **Space Grotesk** for headings, **Inter** for body copy, and **IBM Plex Mono** for technical labels. Fonts are bundled and served locally through `@fontsource`; no Google Fonts request is made when viewing the site.
 
-Page order: Home, About, Experience, Skills, Projects, Education, Contact, Footer. The navigation stays visible and becomes more compact when scrolling. Mobile navigation uses an accessible disclosure button with Escape support. Motion respects reduced-motion preferences.
+Page order: Home / About, Experience, Skills, Projects, Education, Contact, Footer. The navigation stays visible and adapts to smaller screens. Motion respects reduced-motion preferences.
 
 ## Complete project structure
 

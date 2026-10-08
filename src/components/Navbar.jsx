@@ -28,7 +28,7 @@ export default function Navbar() {
   }, [open]);
   return <header className={`site-header ${compact ? 'is-compact' : ''}`} ref={navRef}>
     <div className="container nav-inner">
-      <a className="brand" href="#home" aria-label={`${profile.shortName} — home`} onClick={() => setOpen(false)}><span className="brand-symbol" aria-hidden="true">y<span>.</span>s</span><span className="brand-name">{profile.shortName}<span className="brand-period">.</span></span></a>
+      <a className="brand" href="#home" aria-label={`${profile.shortName} — home`} onClick={() => setOpen(false)}><span className="brand-name">{profile.shortName}<span className="brand-period">.</span></span></a>
       <nav aria-label="Main navigation" id="main-navigation" className={`nav-links ${open ? 'is-open' : ''}`}>
         {navigation.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)} aria-current={active === id ? 'location' : undefined}>{label}</a>)}
       </nav>
