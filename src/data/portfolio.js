@@ -9,7 +9,7 @@ export const profile = {
     email: 'sellamimohamedyahya4@gmail.com',
     phone: '50339160',
     linkedin: 'https://www.linkedin.com/in/mohamed-yahya-sellami-7b12562b7/',
-    github: '', // Full URL to your GitHub profile
+    github: 'https://github.com/mohamed-sellami04',
     photo: 'images/profile.jpg',
     cv: 'cv/Mohamed-Yahya-Sellami-CV.pdf',
     cvDownloadName: 'Mohamed_Yahya_Sellami_CV.pdf',
@@ -26,6 +26,7 @@ export const navigation = [
 
 export const experiences = [{
         company: 'BlueBox Labs',
+        logo: 'images/bluebox/bluebox-labs-logo.png',
         role: 'Full-Stack & IoT Developer Intern',
         label: 'Professional internship',
         period: 'Feb 2026 — Jun 2026',
@@ -42,6 +43,7 @@ export const experiences = [{
     },
     {
         company: 'SECOME',
+        logo: 'images/secome/secome-logo.png',
         role: 'Full-Stack Development Intern',
         label: 'Professional internship',
         period: 'Jun 2025 — Aug 2025',
@@ -56,15 +58,17 @@ export const experiences = [{
     },
     {
         company: 'Future Proof',
-        role: 'Intern',
+        logo: 'images/experience/future-proof-logo.jpg',
+        role: 'Frontend Developer Intern',
         label: 'Professional internship',
         period: 'Aug 2024 — Sep 2024',
-        description: 'Learned and applied React to develop and improve dynamic web interfaces.',
+        description: 'Developed the frontend of a website with React, building and refining its user interface during the internship.',
         points: [],
-        tags: ['React'],
+        tags: ['React', 'Frontend development', 'Web UI'],
     },
     {
         company: 'I TECH',
+        logo: 'images/experience/itech-logo.png',
         role: 'IT Intern',
         label: 'Professional internship',
         period: 'Jun 2024 — Jul 2024',
@@ -74,24 +78,29 @@ export const experiences = [{
     },
     {
         company: 'IEEE RAS IIT SBC',
+        logo: 'images/ieee/ieee-ras-iit-sbc-logo.jpg',
         role: 'Mentor',
         label: 'Associative experience',
         period: 'Jan 2026 — present',
-        description: 'Mentored members of the IEEE RAS IIT Student Branch Chapter.',
+        description: 'Mentored IEEE RAS IIT SBC members and contributed as a speaker to an IoT Foundation workshop, introducing connected technologies and practical hardware applications.',
         points: [],
-        tags: ['Mentoring', 'Leadership'],
+        tags: ['Mentoring', 'IoT', 'Workshop speaking'],
     },
     {
         company: 'IEEE RAS IIT SBC',
+        logo: 'images/ieee/ieee-ras-iit-sbc-logo.jpg',
         role: 'Chair',
         label: 'Associative experience',
         period: 'Jan 2025 — Dec 2025',
-        description: 'Served as chair of the IEEE RAS IIT Student Branch Chapter.',
-        points: [],
-        tags: ['Leadership', 'Teamwork'],
+        description: 'Led the IEEE RAS IIT SBC, delivered an Introduction to Arduino workshop, and contributed to an IEEE TRSYP robotics project.',
+        points: [
+            'Developed a mini self-driving car using computer vision and embedded AI to detect and track objects, recognize traffic lights, follow lanes, and make basic navigation decisions.',
+        ],
+        tags: ['Leadership', 'Arduino', 'Technical workshops', 'IEEE TRSYP', 'Robotics', 'Computer vision', 'Embedded AI'],
     },
     {
         company: 'IEEE RAS IIT SBC',
+        logo: 'images/ieee/ieee-ras-iit-sbc-logo.jpg',
         role: 'Project Manager',
         label: 'Associative experience',
         period: 'May 2024 — Dec 2024',
@@ -101,6 +110,7 @@ export const experiences = [{
     },
     {
         company: 'Scouts',
+        logo: 'images/experience/scouts-logo.jpg',
         role: 'Scout Leader',
         label: 'Associative experience',
         period: '2019 — present',
@@ -125,14 +135,8 @@ export const skillGroups = [
 export const bluebox = {
     title: 'BlueBox',
     subtitle: 'Smart Irrigation System',
-    deliveryApproach: 'Developed in four releases across seven Scrum sprints, with each feature implemented and validated incrementally.',
-    releaseMilestones: [
-        { number: '01', title: 'Local controller interface', sprintCount: '2 sprints', detail: 'Built and refined the TFT home, irrigation program, and manual valve pages, then tested them on the controller.' },
-        { number: '02', title: 'Onboarding and synchronization', sprintCount: '2 sprints', detail: 'Added local REST Wi-Fi setup and connected controller data synchronization with the backend over MQTT.' },
-        { number: '03', title: 'Firmware and hardware integration', sprintCount: '2 sprints', detail: 'Integrated the display with irrigation, valve, I2C, and EEPROM modules; added pressure configuration and operating-mode status.' },
-        { number: '04', title: 'Over-the-air maintenance', sprintCount: '1 sprint', detail: 'Added HTTPS firmware download to the update partition, with LCD progress and result feedback and a controlled reboot.' },
-    ],
     summary: 'A connected irrigation platform linking a mobile app and web dashboard to backend services and an ESP32-S3 field controller.',
+    featuredImage: { src: 'images/bluebox/irrigation-test-setup.jpeg', alt: 'BlueBox irrigation test installation with connected pipes, valves, pressure filter, and controller hardware', caption: 'Real irrigation hardware used to integrate and validate the BlueBox controller with the valve and pressure system.' },
     contributionTitle: 'I contributed across the connected irrigation stack.',
     contribution: [
         'I contributed Spring Boot and PostgreSQL backend features for device management, irrigation programs, logs, and live status, along with React dashboard features for monitoring, configuration, reporting, and irrigation management.',
@@ -165,7 +169,6 @@ export const bluebox = {
         { src: 'images/bluebox/embedded/02-controller-home.webp', alt: 'BlueBox controller display showing the irrigation schedule, valve states, pump status, and pressure fields', caption: 'Controller TFT home screen' },
         { src: 'images/bluebox/mobile-irrigation-schedule.webp', alt: 'BlueBox mobile app showing an irrigation schedule with weekdays, months, and valve durations', caption: 'Mobile app · Irrigation schedule' },
         { src: 'images/bluebox/system-overview.webp', alt: 'BlueBox system overview connecting the mobile app, irrigation controller, and backend', caption: 'Mobile app, controller, and backend' },
-        { src: 'images/bluebox/irrigation-test-setup.jpeg', alt: 'BlueBox irrigation equipment test setup with pipes, valves, controller, and filter', caption: 'Irrigation hardware test setup' },
     ],
     mobileScreenshots: [
         { src: 'images/bluebox/mobile/login.webp', alt: 'BlueBox mobile app login screen with phone number and password fields', caption: 'Mobile app · Sign in' },
@@ -275,8 +278,75 @@ export const secome = {
 
 // Additional projects described in the supplied CV.
 export const additionalProjects = [
-    { id: 'vehicle', type: 'Embedded systems', title: 'Smart Autonomous Vehicle', description: 'Collaborated on an autonomous vehicle challenge using Raspberry Pi and sensors, contributing to navigation and obstacle detection.', icon: 'CircuitBoard', status: 'project', technologies: ['Raspberry Pi', 'Sensors', 'Embedded systems'], url: '' },
-    { id: 'after-sales', type: 'Full-stack development', title: 'After-Sale Services Web Application', description: 'Developed a .NET and SQL Server application with separate interfaces for administrators and clients, focused on secure data management and a clear user experience.', icon: 'PanelsTopLeft', status: 'project', technologies: ['.NET', 'SQL Server'], url: '' },
+    {
+        id: 'car-analyzer',
+        organization: 'Institut International de Technologie (IIT)',
+        logo: 'images/education/iit-logo.png',
+        logoAlt: 'International Institute of Technology logo',
+        logoWide: true,
+        type: 'Academic project',
+        title: 'Car Analyzer – Intelligent Vehicle Diagnostics System',
+        galleryName: 'Car Analyzer',
+        description: 'Developed a Flutter mobile application for real-time vehicle monitoring and data analysis. It analyzes sensor readings and driving history to assess engine health, battery status, and fuel consumption, presenting clear, actionable diagnostic insights.',
+        icon: 'Gauge',
+        status: 'project',
+        highlights: [
+            'Shows vehicle details and live dashboard readings, including speed and engine data.',
+            'Analyzes driving history, engine health, battery status, and fuel consumption.',
+            'Displays sensor status and flags readings that may need attention.',
+        ],
+        technologies: ['Flutter', 'Dart', 'Vehicle diagnostics', 'Sensor data', 'Data visualization'],
+        screenshots: [
+            { src: 'images/car-analyzer/login-and-comparison.png', alt: 'Car Analyzer login page with a vehicle comparison action', caption: 'Login and vehicle comparison' },
+            { src: 'images/car-analyzer/vehicle-profile.png', alt: 'Vehicle profile showing Toyota Corolla details', caption: 'Vehicle profile' },
+            { src: 'images/car-analyzer/dashboard.png', alt: 'Dashboard with live vehicle summary and speed chart', caption: 'Live dashboard' },
+            { src: 'images/car-analyzer/smart-analysis.png', alt: 'Smart analysis page showing vehicle and fuel consumption details', caption: 'Vehicle and fuel analysis' },
+            { src: 'images/car-analyzer/sensor-status.png', alt: 'Sensor status page showing pressure, temperature, and airflow readings', caption: 'Sensor status' },
+        ],
+        galleryClass: 'car-analyzer-gallery-grid',
+        url: '',
+    },
+    {
+        id: 'vehicle',
+        organization: 'IEEE TRSYP',
+        logo: 'images/ieee/ieee-ras-iit-sbc-logo.jpg',
+        logoAlt: 'IEEE RAS IIT Student Branch Chapter logo',
+        logoWide: true,
+        type: 'Robotics project',
+        title: 'Mini Autonomous Car',
+        description: 'Built for IEEE TRSYP, this mini self-driving car uses computer vision and embedded AI to detect and track surrounding objects, recognize traffic lights, follow lanes, and make basic navigation decisions.',
+        icon: 'CircuitBoard',
+        status: 'project',
+        highlights: [
+            'Detected and tracked surrounding objects in real time.',
+            'Recognized traffic lights and responded to their signals.',
+            'Followed lanes and made basic autonomous navigation decisions.',
+        ],
+        technologies: ['Computer vision', 'Embedded AI', 'Object detection', 'Traffic-light recognition', 'Lane following', 'Autonomous navigation'],
+        images: [
+            { src: 'images/ieee/mini-autonomous-car-team-2.jpg', alt: 'Project team standing with the mini autonomous car', caption: 'The team and the finished prototype' },
+        ],
+        url: '',
+    },
+    {
+        id: 'after-sales',
+        logo: 'images/education/iit-logo.png',
+        logoAlt: 'International Institute of Technology logo',
+        logoWide: true,
+        type: 'Full-stack development',
+        title: 'After-Sales Service Management Web App',
+        description: 'Built a role-based after-sales portal where customers submit product complaints and follow repair interventions, while administrators manage the product catalog and service workflow.',
+        icon: 'PanelsTopLeft',
+        status: 'project',
+        highlights: [
+            'Client area for submitting complaints and viewing warranty status, repair interventions, and spare parts used.',
+            'Admin tools for managing catalog articles, complaints, interventions, and spare parts.',
+            'Warranty-aware service costs, including labor and replacement parts.',
+        ],
+        technologies: ['C#', '.NET 8', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Razor', 'Bootstrap'],
+        url: 'https://github.com/mohamed-sellami04/ServiceApresVenteApp',
+        linkLabel: 'View source on GitHub',
+    },
 ];
 
 export const education = [

@@ -9,6 +9,18 @@
     <meta property="og:title" content="Mohamed Yahya Sellami | Full-Stack, IoT & Software Testing" />
     <meta property="og:description" content="Full-stack development, embedded systems, IoT, mobile applications, and software testing." />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <script>
+      try {
+        const darkTheme = localStorage.getItem('portfolio-theme') === 'dark';
+        const language = ['en', 'fr', 'ar'].includes(localStorage.getItem('portfolio-language')) ? localStorage.getItem('portfolio-language') : 'en';
+        document.documentElement.dataset.theme = darkTheme ? 'dark' : 'light';
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', darkTheme ? '#0b1117' : '#ffffff');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
     <title>Mohamed Yahya Sellami | Full-Stack, IoT & Software Testing</title>
   </head>
   <body>
