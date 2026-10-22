@@ -166,25 +166,15 @@ Keep `status: 'placeholder'` until you have real work to present. No fake projec
 
 ## 6. Contact form delivery
 
-The form has three intentional modes:
+On the deployed Netlify site, the contact form submits to Netlify Forms. The project includes the static form markup Netlify needs to detect this React form. To receive each submission by email:
 
-| Configuration | Behavior |
-| --- | --- |
-| No email and no endpoint | **Copy message** copies the inquiry. The page clearly states that nothing has been sent. If clipboard access is unavailable, a selectable draft appears. |
-| A real `profile.email`, no endpoint | **Open email draft** opens the visitor’s email application with the recipient, subject, and message. The visitor reviews and sends it. |
-| `VITE_CONTACT_FORM_ENDPOINT` configured | **Send message** POSTs JSON to your configured service. Loading, success, timeout, and failure states are shown. |
+1. In the Netlify site dashboard, open **Forms** and enable form detection.
+2. Deploy or redeploy the site so Netlify can detect the `contact` form.
+3. Open **Forms → Submission notifications**, add an email notification, and set its recipient to the address in `profile.email` in `src/data/portfolio.js`.
 
-The default website does not silently store contact messages or pretend to send them.
+The submitted `email` field is included as the reply-to address. Configure the notification in Netlify; the site code cannot access your account or inbox settings. Test the live form after setup. During local development, the form opens a prefilled email draft instead of sending a Netlify submission.
 
-For direct delivery, create and verify a form with Formspree or use your own compatible endpoint. Copy `.env.example` to `.env.local` and set:
-
-```dotenv
-VITE_CONTACT_FORM_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
-```
-
-Restart the development server. For deployment, set this variable in your build environment before building. Vite substitutes `VITE_` values at build time. Never put API secrets in them.
-
-The endpoint must accept JSON fields `name`, `email`, `subject`, `message`, and `_gotcha`, allow browser requests from your domain, and return a non-error HTTP response only when the submission is accepted. Configure validation and anti-spam controls on the service as well. End-to-end message delivery must be tested after your real endpoint is configured; no external messages were sent during development.
+For a different hosting provider or delivery service, set the optional `VITE_CONTACT_FORM_ENDPOINT` in `.env.local` and in the deployment build environment. It must accept JSON fields `name`, `email`, `subject`, `message`, and `_gotcha`. Never put API secrets in `VITE_` variables because Vite exposes them in browser code.
 
 ## 7. Deploy the portfolio
 
@@ -197,7 +187,7 @@ This is a static frontend. It does not require a Node.js process on your product
 3. Use `npm run build` as the build command.
 4. Use `dist` as the output directory.
 5. Use Node.js 22.12 or newer in the build environment.
-6. Add `VITE_CONTACT_FORM_ENDPOINT` to the build environment only if you use direct form delivery.
+6. For Netlify Forms, enable form detection and configure an email notification as described above. Set `VITE_CONTACT_FORM_ENDPOINT` only if using a separate delivery service.
 7. Deploy and verify the CV download, images, contact method, and social URLs on the deployed page.
 
 For a manual upload, run `npm run build` locally and upload the **contents** of `dist/`. Do not upload `src/` or `node_modules/` as the public website.

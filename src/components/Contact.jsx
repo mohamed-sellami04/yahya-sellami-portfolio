@@ -6,6 +6,7 @@ import { Button, Reveal, SocialLinks } from './ui';
 import { useLanguage } from '../i18n';
 
 const endpoint = safeExternalUrl(import.meta.env.VITE_CONTACT_FORM_ENDPOINT?.trim());
+const localPreview = import.meta.env.DEV || ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
 const initialFields = { name: '', email: '', subject: '', message: '', companyWebsite: '' };
 
 export default function Contact() {
@@ -15,7 +16,7 @@ export default function Contact() {
   const [feedback, setFeedback] = useState('');
   const [showDraft, setShowDraft] = useState(false);
   const hasEmail = validEmail(profile.email);
-  const draftOnly = !endpoint && !hasEmail;
+  const draftOnly = !endpoint && localPreview && !hasEmail;
   const change = (e) => { setFields({ ...fields, [e.target.name]: e.target.value }); if (state !== 'loading') { setState('idle'); setFeedback(''); setShowDraft(false); } };
 
   const submit = async (e) => {
@@ -27,12 +28,14 @@ export default function Contact() {
       catch { setShowDraft(true); setFeedback('Select and copy your message below. It has not been sent.'); setState('idle'); }
       return;
     }
-    if (!endpoint) { window.location.href = buildMailto(profile.email, fields); setFeedback('Your email app has been requested. Review and send the draft there. Nothing is sent by this website.'); setState('success'); return; }
+    if (!endpoint && localPreview) { window.location.href = buildMailto(profile.email, fields); setFeedback('Your email app has been requested. Review and send the draft there. Nothing is sent by this website.'); setState('success'); return; }
     setState('loading'); setFeedback('Sending…');
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const result = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name: fields.name, email: fields.email, subject: fields.subject, message: fields.message, _gotcha: fields.companyWebsite }), signal: controller.signal });
+      const result = endpoint
+        ? await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name: fields.name, email: fields.email, subject: fields.subject, message: fields.message, _gotcha: fields.companyWebsite }), signal: controller.signal })
+        : await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'contact', name: fields.name, email: fields.email, subject: fields.subject, message: fields.message, companyWebsite: fields.companyWebsite }).toString(), signal: controller.signal });
       if (!result.ok) throw new Error('Delivery failed');
       setState('success'); setFeedback('Thank you. Your message has been submitted successfully.'); setFields(initialFields);
     } catch { setState('error'); setFeedback('Your message could not be sent. Please try again' + (hasEmail ? ' or use the email link.' : ' later.')); }
@@ -56,7 +59,8 @@ export default function Contact() {
       </Reveal>
 
       <Reveal className="contact-form-wrap" delay={70}>
-        <form onSubmit={submit} className="contact-form">
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="companyWebsite" onSubmit={submit} className="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
           <div className="form-title"><h3>{t('Start a conversation')}</h3><span className="mono">{t('SAY HELLO')}</span></div>
           <div className="form-row">
             <label htmlFor="contact-name">{t('Name')}<input id="contact-name" name="name" autoComplete="name" disabled={state === 'loading'} value={fields.name} onChange={change} placeholder={t('Your name')} required maxLength={100} /></label>
@@ -66,9 +70,9 @@ export default function Contact() {
           <label htmlFor="contact-message">{t('Message')}<textarea id="contact-message" name="message" disabled={state === 'loading'} value={fields.message} onChange={change} placeholder={t('Tell me a little about what you have in mind.')} required minLength={10} maxLength={5000} rows={5} /></label>
           <div className="honeypot" aria-hidden="true"><label>{t('Leave this empty')}<input name="companyWebsite" value={fields.companyWebsite} onChange={change} tabIndex={-1} autoComplete="off" /></label></div>
           <Button type="submit" className="form-submit" disabled={state === 'loading'}>
-            {state === 'loading' ? <><LoaderCircle className="spinner" size={17} />{t('Sending…')}</> : draftOnly ? <>{t('Copy message')} <Copy size={17} aria-hidden="true" /></> : endpoint ? <>{t('Send message')} <ArrowUpRight size={18} aria-hidden="true" /></> : <>{t('Open email draft')} <ArrowUpRight size={18} aria-hidden="true" /></>}
+            {state === 'loading' ? <><LoaderCircle className="spinner" size={17} />{t('Sending…')}</> : draftOnly ? <>{t('Copy message')} <Copy size={17} aria-hidden="true" /></> : endpoint || !localPreview ? <>{t('Send message')} <ArrowUpRight size={18} aria-hidden="true" /></> : <>{t('Open email draft')} <ArrowUpRight size={18} aria-hidden="true" /></>}
           </Button>
-          <p className="form-note">{t(draftOnly ? 'This only copies a message. It will not be sent; use the listed contact details to send it.' : endpoint ? 'Your details are used to respond to your inquiry. This form uses an external message delivery service.' : 'This opens your email app with a draft for you to review and send.')}</p>
+          <p className="form-note">{t(draftOnly ? 'This only copies a message. It will not be sent; use the listed contact details to send it.' : endpoint ? 'Your details are used to respond to your inquiry. This form uses an external message delivery service.' : localPreview ? 'This opens your email app with a draft for you to review and send.' : 'Your details are used to respond to your inquiry. This form uses an external message delivery service.')}</p>
           <div className={`form-feedback ${state}`} role="status" aria-live="polite">{feedback && <>{state === 'success' && <Check size={16} aria-hidden="true" />}<span>{t(feedback)}</span></>}</div>
           {showDraft && <label htmlFor="inquiry-draft">{t('Your message')}<textarea id="inquiry-draft" readOnly value={formatInquiry(fields, profile.name)} rows={7} onFocus={e => e.target.select()} /></label>}
         </form>

@@ -24,6 +24,14 @@
   </head>
   <body>
     <div id="root"></div>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="companyWebsite" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <input type="text" name="companyWebsite" />
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
