@@ -19,6 +19,7 @@ const experienceGroups = [
   },
 ];
 
+
 export default function Experience() {
   const { t } = useLanguage();
   return <section id="experience" className="section section--tinted" aria-labelledby="experience-title">

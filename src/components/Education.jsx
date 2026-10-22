@@ -12,6 +12,7 @@ export default function Education() {
         <SectionHeading number="05" eyebrow="EDUCATION" title={<span id="education-title">{t('Always')}<br /><span className="muted">{t('building forward.')}</span></span>} />
         <p className="education-note">{t('A foundation in software.')}<br />{t('An ongoing commitment to learning.')}</p>
       </Reveal>
+      
 
       <div className="education-list">
         {education.map((item, index) => <Reveal key={item.title} className="education-item" delay={index * 60}>

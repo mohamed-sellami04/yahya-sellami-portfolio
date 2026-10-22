@@ -78,23 +78,23 @@ The hosted editing checkout also has a Sites-managed `.openai/hosting.json`. It 
 
 ## Component architecture
 
-| Component / file | Responsibility |
-| --- | --- |
-| `App.jsx` | Semantic page structure and section composition |
-| `Navbar.jsx` | Sticky navigation, active section, mobile menu, CV link |
-| `Hero.jsx` | Introduction, availability, actions, contact icons |
-| `SystemDiagram.jsx` | Interactive explanation of the BlueBox architecture |
-| `About.jsx` | Profile, optional portrait, approach, availability |
-| `Experience.jsx` | Professional vertical timeline |
-| `Skills.jsx` | Seven skill categories without invented proficiency scores |
-| `Projects.jsx` | BlueBox case study and three explicit project placeholders |
-| `ProjectGallery.jsx` | Actual screenshots when configured; reserved image spaces otherwise |
-| `Education.jsx` | Bachelor’s and current evening engineering studies |
-| `Contact.jsx` | Form validation, copying a draft, mailto mode, optional hosted form delivery |
-| `Footer.jsx` | Identity, copyright, links, return to top |
-| `ui.jsx` | Reusable buttons, icons, tags, social links, section headings, reveal animation |
-| `data/portfolio.js` | Personal details, skills, timeline, project content, image paths |
-| `styles.css` | Tailwind v4 theme, reusable component styles, responsive rules |
+| Component / file     | Responsibility                                                                  |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `App.jsx`            | Semantic page structure and section composition                                 |
+| `Navbar.jsx`         | Sticky navigation, active section, mobile menu, CV link                         |
+| `Hero.jsx`           | Introduction, availability, actions, contact icons                              |
+| `SystemDiagram.jsx`  | Interactive explanation of the BlueBox architecture                             |
+| `About.jsx`          | Profile, optional portrait, approach, availability                              |
+| `Experience.jsx`     | Professional vertical timeline                                                  |
+| `Skills.jsx`         | Seven skill categories without invented proficiency scores                      |
+| `Projects.jsx`       | BlueBox case study and three explicit project placeholders                      |
+| `ProjectGallery.jsx` | Actual screenshots when configured; reserved image spaces otherwise             |
+| `Education.jsx`      | Bachelor’s and current evening engineering studies                              |
+| `Contact.jsx`        | Form validation, copying a draft, mailto mode, optional hosted form delivery    |
+| `Footer.jsx`         | Identity, copyright, links, return to top                                       |
+| `ui.jsx`             | Reusable buttons, icons, tags, social links, section headings, reveal animation |
+| `data/portfolio.js`  | Personal details, skills, timeline, project content, image paths                |
+| `styles.css`         | Tailwind v4 theme, reusable component styles, responsive rules                  |
 
 ## 1. Personal details and social links
 
@@ -102,18 +102,18 @@ Open `src/data/portfolio.js` and edit `profile`:
 
 ```js
 export const profile = {
-  name: 'Mohamed Yahya Sellami',
-  shortName: 'Yahya Sellami',
-  title: 'Junior Full-Stack & IoT Developer | Software Testing',
-  location: 'Sfax, Tunisia',
-  availability: 'Open to full-time opportunities',
-  email: 'sellamimohamedyahya4@gmail.com',
-  phone: '50339160',
-  linkedin: 'https://www.linkedin.com/in/mohamed-yahya-sellami-7b12562b7/',
-  github: 'YOUR_FULL_GITHUB_PROFILE_URL',
-  photo: 'images/profile.jpg',
-  cv: 'cv/Mohamed-Yahya-Sellami-CV.pdf',
-  cvDownloadName: 'Mohamed_Yahya_Sellami_CV.pdf',
+  name: "Mohamed Yahya Sellami",
+  shortName: "Yahya Sellami",
+  title: "Junior Full-Stack & IoT Developer | Software Testing",
+  location: "Sfax, Tunisia",
+  availability: "Open to full-time opportunities",
+  email: "sellamimohamedyahya4@gmail.com",
+  phone: "50339160",
+  linkedin: "https://www.linkedin.com/in/mohamed-yahya-sellami-7b12562b7/",
+  github: "YOUR_FULL_GITHUB_PROFILE_URL",
+  photo: "images/profile.jpg",
+  cv: "cv/Mohamed-Yahya-Sellami-CV.pdf",
+  cvDownloadName: "Mohamed_Yahya_Sellami_CV.pdf",
 };
 ```
 

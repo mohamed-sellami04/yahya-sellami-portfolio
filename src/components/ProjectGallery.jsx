@@ -5,6 +5,7 @@ import { bluebox } from '../data/portfolio';
 import { assetUrl } from '../lib/utils';
 import { useLanguage } from '../i18n';
 
+
 function Screenshot({ shot, items, index, onOpen }) {
   const { t } = useLanguage();
   const [failed, setFailed] = useState(false);

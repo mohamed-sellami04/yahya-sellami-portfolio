@@ -19,6 +19,7 @@ export default function Contact() {
   const draftOnly = !endpoint && localPreview && !hasEmail;
   const change = (e) => { setFields({ ...fields, [e.target.name]: e.target.value }); if (state !== 'loading') { setState('idle'); setFeedback(''); setShowDraft(false); } };
 
+  
   const submit = async (e) => {
     e.preventDefault();
     if (fields.companyWebsite || state === 'loading') return;

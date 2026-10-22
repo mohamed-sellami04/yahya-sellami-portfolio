@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f5f8f8" />
@@ -9,29 +10,31 @@
     <meta property="og:title" content="Mohamed Yahya Sellami | Full-Stack, IoT & Software Testing" />
     <meta property="og:description" content="Full-stack development, embedded systems, IoT, mobile applications, and software testing." />
     <script>
-      try {
-        const darkTheme = localStorage.getItem('portfolio-theme') === 'dark';
-        const language = ['en', 'fr', 'ar'].includes(localStorage.getItem('portfolio-language')) ? localStorage.getItem('portfolio-language') : 'en';
-        document.documentElement.dataset.theme = darkTheme ? 'dark' : 'light';
-        document.documentElement.lang = language;
-        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', darkTheme ? '#0b1117' : '#ffffff');
-      } catch {
-        document.documentElement.dataset.theme = 'light';
-      }
+        try {
+            const darkTheme = localStorage.getItem('portfolio-theme') === 'dark';
+            const language = ['en', 'fr', 'ar'].includes(localStorage.getItem('portfolio-language')) ? localStorage.getItem('portfolio-language') : 'en';
+            document.documentElement.dataset.theme = darkTheme ? 'dark' : 'light';
+            document.documentElement.lang = language;
+            document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', darkTheme ? '#0b1117' : '#ffffff');
+        } catch {
+            document.documentElement.dataset.theme = 'light';
+        }
     </script>
     <title>Mohamed Yahya Sellami | Full-Stack, IoT & Software Testing</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="root"></div>
     <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="companyWebsite" hidden>
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="subject" />
-      <textarea name="message"></textarea>
-      <input type="text" name="companyWebsite" />
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+        <input type="text" name="companyWebsite" />
     </form>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
+
 </html>

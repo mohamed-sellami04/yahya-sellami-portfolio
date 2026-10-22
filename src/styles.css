@@ -1404,3 +1404,45 @@ html[dir='rtl'] .education-availability:hover svg { transform: scaleX(-1) transl
   .language-control { gap: 5px; }
   .language-control select { max-width: 88px; padding-inline: 5px; font-size: .75rem; }
 }
+
+/* Small visual refresh: softer surfaces and a clearer blue accent. */
+body { background: #fbfcfd; }
+.hero {
+  background:
+    radial-gradient(ellipse at 84% 12%, #e3effb 0, transparent 42%),
+    linear-gradient(135deg, #f8fafc 0%, #f1f5f8 100%);
+}
+.section--tinted,
+.section--projects { background: linear-gradient(180deg, #f8fafb, #f1f5f8); }
+.hero-about-panel,
+.experience-card,
+.skill-card,
+.education-card,
+.project-accordion,
+.case-study,
+.contact-form-wrap,
+.flagship-project {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px #1832460a;
+}
+.hero-about-panel { border-color: #d6e1e8; }
+.button { border-radius: 7px; }
+.tag { border-radius: 999px; background: #f6f9fb; }
+.skill-card li { border-radius: 999px; }
+
+html[data-theme='dark'] body { background: #0b1117; }
+html[data-theme='dark'] .hero {
+  background:
+    radial-gradient(ellipse at 84% 12%, #162c3b 0, transparent 42%),
+    linear-gradient(135deg, #0b1117 0%, #101a23 100%);
+}
+html[data-theme='dark'] .section--tinted,
+html[data-theme='dark'] .section--projects { background: linear-gradient(180deg, #0f171f, #111c25); }
+html[data-theme='dark'] .hero-about-panel,
+html[data-theme='dark'] .experience-card,
+html[data-theme='dark'] .skill-card,
+html[data-theme='dark'] .education-card,
+html[data-theme='dark'] .project-accordion,
+html[data-theme='dark'] .case-study,
+html[data-theme='dark'] .contact-form-wrap,
+html[data-theme='dark'] .flagship-project { box-shadow: 0 10px 30px #0002; }

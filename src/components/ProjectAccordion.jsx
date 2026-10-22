@@ -3,6 +3,7 @@ import { assetUrl } from '../lib/utils';
 import { Icon } from './ui';
 import { useLanguage } from '../i18n';
 
+
 export default function ProjectAccordion({
   title,
   company,

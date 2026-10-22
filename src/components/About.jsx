@@ -20,4 +20,4 @@ export default function About() {
       <div className="availability-note"><span className="note-bar" /><p><strong>{t('Available for daytime work.')}</strong>{t('My engineering classes are in the evening.')}</p></div>
     </Reveal>
   </div>;
-}
+} 

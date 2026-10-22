@@ -5,6 +5,7 @@ import ProjectGallery from './ProjectGallery';
 import ProjectAccordion from './ProjectAccordion';
 import { useLanguage } from '../i18n';
 
+
 export default function SecomeProject() {
   const { t } = useLanguage();
   return <Reveal delay={80}>

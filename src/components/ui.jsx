@@ -17,6 +17,7 @@ export function CvButton({ compact = false, variant = 'secondary' }) {
   return <Button href={assetUrl(profile.cv)} download={profile.cvDownloadName} variant={variant} className={compact ? 'button--compact' : ''}>{t('Download CV')} <Download size={16} aria-hidden="true" /></Button>;
 }
 
+
 export function SectionHeading({ number, eyebrow, title, description, className = '' }) {
   const { t } = useLanguage();
   return <div className={`section-heading ${className}`}><p className="eyebrow"><span>{number}</span>{t(eyebrow)}</p><h2>{title}</h2>{description && <p className="section-description">{description}</p>}</div>;

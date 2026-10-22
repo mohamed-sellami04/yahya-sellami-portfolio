@@ -118,6 +118,7 @@ export const experiences = [{
         points: [],
         tags: ['Leadership', 'Communication'],
     },
+
 ];
 
 export const skillGroups = [
@@ -277,8 +278,7 @@ export const secome = {
 };
 
 // Additional projects described in the supplied CV.
-export const additionalProjects = [
-    {
+export const additionalProjects = [{
         id: 'car-analyzer',
         organization: 'Institut International de Technologie (IIT)',
         logo: 'images/education/iit-logo.png',

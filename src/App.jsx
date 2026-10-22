@@ -16,3 +16,4 @@ function PortfolioContent() {
 export default function App() {
   return <LanguageProvider><PortfolioContent /></LanguageProvider>;
 }
+

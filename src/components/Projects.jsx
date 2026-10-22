@@ -7,6 +7,7 @@ import ProjectGallery from './ProjectGallery';
 import SecomeProject from './SecomeProject';
 import { useLanguage } from '../i18n';
 
+
 export default function Projects() {
   const { t } = useLanguage();
   return <section id="projects" className="section section--projects" aria-labelledby="projects-title"><div className="container">

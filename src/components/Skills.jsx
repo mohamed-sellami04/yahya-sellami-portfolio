@@ -9,3 +9,4 @@ export default function Skills() {
     <div className="skills-grid">{skillGroups.map((group, i) => <Reveal className={`skill-card ${group.icon === 'ShieldCheck' ? 'skill-card--wide' : ''}`} key={group.title} delay={(i % 3) * 45}><div className="skill-card-top"><Icon name={group.icon} size={25} /><span className="mono">{group.number}</span></div><h3>{t(group.title)}</h3><ul>{group.skills.map(skill => <li key={skill}>{t(skill)}</li>)}</ul></Reveal>)}</div>
   </div></section>;
 }
+

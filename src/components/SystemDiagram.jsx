@@ -30,3 +30,4 @@ export default function SystemDiagram({ compact = false }) {
     <div className="diagram-bottom"><span>Simplified architecture</span><span className="mono">HARDWARE ↔ SOFTWARE</span></div>
   </div>;
 }
+

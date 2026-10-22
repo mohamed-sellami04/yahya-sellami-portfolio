@@ -10,6 +10,7 @@ export default function Hero() {
   const familyName = nameParts.pop();
   const givenNames = nameParts.join(' ');
 
+  
   return <section id="home" className="hero" aria-labelledby="hero-heading">
     <div className="hero-grid container">
       <div className="hero-copy">
