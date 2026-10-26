@@ -103,21 +103,21 @@ Open `src/data/portfolio.js` and edit `profile`:
 ```js
 export const profile = {
   name: "Mohamed Yahya Sellami",
-  shortName: "Yahya Sellami",
+  shortName: "Mohamed Yahya Sellami",
   title: "Junior Full-Stack & IoT Developer | Software Testing",
   location: "Sfax, Tunisia",
   availability: "Open to full-time opportunities",
   email: "sellamimohamedyahya4@gmail.com",
-  phone: "50339160",
+  phone: "+216 50339160",
   linkedin: "https://www.linkedin.com/in/mohamed-yahya-sellami-7b12562b7/",
-  github: "YOUR_FULL_GITHUB_PROFILE_URL",
+  github: "https://github.com/mohamed-sellami04",
   photo: "images/profile.jpg",
   cv: "cv/Mohamed-Yahya-Sellami-CV.pdf",
   cvDownloadName: "Mohamed_Yahya_Sellami_CV.pdf",
 };
 ```
 
-The email, phone, LinkedIn URL, and portrait are configured from the supplied CV and image. A GitHub URL was not listed, so that link remains unset rather than pointing to a guessed account. Update these fields in `profile` when your public contact details change.
+The email, international phone number, LinkedIn URL, GitHub URL, and portrait are configured from the supplied CV and image. Update these fields in `profile` when your public contact details change.
 
 The experience, education, project, language, and association details are based on the supplied CV. Review them for accuracy when updating your CV; no dates or project links should be added unless they are verified.
 

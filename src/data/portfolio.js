@@ -7,7 +7,7 @@ export const profile = {
     location: 'Sfax, Tunisia',
     availability: 'Open to full-time opportunities',
     email: 'sellamimohamedyahya4@gmail.com',
-    phone: '50339160',
+    phone: '+216 50339160',
     linkedin: 'https://www.linkedin.com/in/mohamed-yahya-sellami-7b12562b7/',
     github: 'https://github.com/mohamed-sellami04',
     photo: 'images/profile.jpg',
@@ -69,7 +69,7 @@ export const experiences = [{
     {
         company: 'I TECH',
         logo: 'images/experience/itech-logo.png',
-        role: 'IT Intern',
+        role: 'Computer Hardware Intern',
         label: 'Professional internship',
         period: 'Jun 2024 — Jul 2024',
         description: 'Gained practical experience installing, configuring, and troubleshooting computer hardware components.',
@@ -123,14 +123,15 @@ export const experiences = [{
 
 export const skillGroups = [
     { title: 'Programming languages', icon: 'Code2', number: '01', skills: ['C', 'C++', 'Python', 'Java', 'JavaScript'] },
-    { title: 'Embedded & IoT', icon: 'Cpu', number: '02', skills: ['ESP32-S3', 'Raspberry Pi', 'Firmware development', 'MQTT', 'REST APIs', 'Wi-Fi', 'JSON', 'Sensors & actuators'] },
-    { title: 'Frontend & mobile', icon: 'PanelsTopLeft', number: '03', skills: ['React', 'Flutter', 'HTML', 'CSS', 'JavaScript'] },
-    { title: 'Backend', icon: 'Server', number: '04', skills: ['Spring Boot', '.NET', 'REST APIs', 'Firebase Cloud Messaging'] },
+    { title: 'Embedded Systems & IoT', icon: 'Cpu', number: '02', skills: ['ESP32-S3', 'Raspberry Pi', 'Firmware development', 'Embedded GUI', 'TFT displays', 'MQTT', 'Wi-Fi', 'Hardware-software integration'] },
+    { title: 'Web & Mobile', icon: 'PanelsTopLeft', number: '03', skills: ['React', 'Flutter', 'HTML', 'CSS'] },
+    { title: 'Backend & APIs', icon: 'Server', number: '04', skills: ['Spring Boot', '.NET', 'REST APIs', 'JSON', 'Firebase Cloud Messaging'] },
     { title: 'Databases', icon: 'Database', number: '05', skills: ['PostgreSQL', 'MySQL', 'SQL Server', 'Oracle'] },
-    { title: 'Tools', icon: 'GitBranch', number: '06', skills: ['Git', 'GitHub', 'Bitbucket', 'Docker', 'PlatformIO', 'Android Studio'] },
-    { title: 'Testing & QA', icon: 'ShieldCheck', number: '07', skills: ['API testing', 'Functional testing', 'Integration testing', 'System testing', 'Regression testing'] },
-    { title: 'Languages', icon: 'Code2', number: '08', skills: ['Arabic (native)', 'English (B1)', 'French (B1)'] },
-    { title: 'Professional strengths', icon: 'ShieldCheck', number: '09', skills: ['Leadership and team motivation', 'Decision-making and problem-solving', 'Stress management', 'Clear team communication'] },
+    { title: 'Version Control', icon: 'GitBranch', number: '06', skills: ['Git', 'GitHub', 'Bitbucket'] },
+    { title: 'Tools & Containers', icon: 'PanelsTopLeft', number: '07', skills: ['Docker', 'PlatformIO', 'Android Studio'] },
+    { title: 'Software Testing & QA', icon: 'ShieldCheck', number: '08', skills: ['API testing', 'Functional testing', 'Integration testing', 'System testing', 'Regression testing', 'Debugging'] },
+    { title: 'Languages', icon: 'Code2', number: '09', skills: ['Arabic (native)', 'English (B1)', 'French (B1)'] },
+    { title: 'Professional strengths', icon: 'ShieldCheck', number: '10', skills: ['Leadership and team motivation', 'Decision-making and problem-solving', 'Stress management', 'Clear team communication'] },
 ];
 
 export const bluebox = {
@@ -277,7 +278,7 @@ export const secome = {
     ],
 };
 
-// Additional projects described in the supplied CV.
+// Additional projects featured in the portfolio; the CV lists selected projects.
 export const additionalProjects = [{
         id: 'car-analyzer',
         organization: 'Institut International de Technologie (IIT)',
@@ -313,16 +314,17 @@ export const additionalProjects = [{
         logoAlt: 'IEEE RAS IIT Student Branch Chapter logo',
         logoWide: true,
         type: 'Robotics project',
-        title: 'Mini Autonomous Car',
-        description: 'Built for IEEE TRSYP, this mini self-driving car uses computer vision and embedded AI to detect and track surrounding objects, recognize traffic lights, follow lanes, and make basic navigation decisions.',
+        title: 'Smart Autonomous Vehicle',
+        period: 'Oct 2025 — Nov 2025',
+        description: 'Collaborated with a team to develop a Raspberry Pi autonomous vehicle, contributing to sensor-based navigation and obstacle detection.',
         icon: 'CircuitBoard',
         status: 'project',
         highlights: [
-            'Detected and tracked surrounding objects in real time.',
-            'Recognized traffic lights and responded to their signals.',
-            'Followed lanes and made basic autonomous navigation decisions.',
+            'Contributed to sensor-based navigation.',
+            'Implemented obstacle detection.',
+            'Developed a Raspberry Pi autonomous vehicle as part of a team challenge.',
         ],
-        technologies: ['Computer vision', 'Embedded AI', 'Object detection', 'Traffic-light recognition', 'Lane following', 'Autonomous navigation'],
+        technologies: ['Raspberry Pi', 'Embedded systems', 'Sensor-based navigation', 'Obstacle detection'],
         images: [
             { src: 'images/ieee/mini-autonomous-car-team-2.jpg', alt: 'Project team standing with the mini autonomous car', caption: 'The team and the finished prototype' },
         ],
@@ -334,14 +336,15 @@ export const additionalProjects = [{
         logoAlt: 'International Institute of Technology logo',
         logoWide: true,
         type: 'Full-stack development',
-        title: 'After-Sales Service Management Web App',
-        description: 'Built a role-based after-sales portal where customers submit product complaints and follow repair interventions, while administrators manage the product catalog and service workflow.',
+        title: 'After-Sales Services Web Application',
+        period: 'May 2025 — Jun 2025',
+        description: 'Developed a .NET and SQL Server application with separate administrator and client interfaces, secure data management, scalable clean architecture, and an intuitive user experience.',
         icon: 'PanelsTopLeft',
         status: 'project',
         highlights: [
-            'Client area for submitting complaints and viewing warranty status, repair interventions, and spare parts used.',
-            'Admin tools for managing catalog articles, complaints, interventions, and spare parts.',
-            'Warranty-aware service costs, including labor and replacement parts.',
+            'Built separate interfaces for administrators and clients.',
+            'Applied secure data management and a scalable clean architecture.',
+            'Designed an intuitive user experience for after-sales workflows.',
         ],
         technologies: ['C#', '.NET 8', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Razor', 'Bootstrap'],
         url: 'https://github.com/mohamed-sellami04/ServiceApresVenteApp',

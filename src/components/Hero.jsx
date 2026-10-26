@@ -18,7 +18,7 @@ export default function Hero() {
         <p className="hero-intro">{t('Hi, I’m')}</p>
         <h1 id="hero-heading">{givenNames}<br /><span>{familyName}.</span></h1>
         <p className="hero-role">{t(profile.title)}</p>
-        <p className="hero-summary">{t('Full-stack development, embedded IoT, and software testing.')}</p>
+        <p className="hero-summary">{t('Full-stack development, IoT systems, hardware-software integration, and software testing.')}</p>
         <div className="hero-buttons">
           <Button href="#projects">{t('View projects')} <ArrowUpRight size={17} aria-hidden="true" /></Button>
           <CvButton />

@@ -62,12 +62,13 @@ export default function Projects() {
 
       <SecomeProject />
 
-      {additionalProjects.map((project, i) => {
+      {[...additionalProjects].sort((a, b) => Number(Boolean(b.period)) - Number(Boolean(a.period))).map((project, i) => {
         const href = safeExternalUrl(project.url);
         return <Reveal key={project.id} delay={(i + 2) * 40}>
           <ProjectAccordion
             title={project.title}
             company={project.organization}
+            period={project.period}
             type={project.type}
             description={project.description}
             logo={project.logo}
